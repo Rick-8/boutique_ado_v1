@@ -87,7 +87,7 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request', # required by allauth
-                'django.contrib.auth.context_processors.auth', 
+                'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
@@ -133,7 +133,7 @@ if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-else: 
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -178,28 +178,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+# This is required for collectstatic to work on Heroku
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Media files (user uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#if 'USE_AWS' in os.environ:
-     # Bucket Config
- #   AWS_STORAGE_BUCKET_NAME = 'boutique-ado-vrg'  # change this to your AWS bucket name
- #   AWS_S3_REGION_NAME = 'eu-north-1'
- #   AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
- #   AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
- #   AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-
-    # Static and media files
- #   STATICFILES_STORAGE = 'custom_storages.StaticStorage'
- #   STATICFILES_LOCATION = 'static'
- #   DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-#    MEDIAFILES_LOCATION = 'media'
-
-#    # Override static and media URLs in production
- #   STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-#    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 if 'USE_AWS' in os.environ:
     # Bucket Config
