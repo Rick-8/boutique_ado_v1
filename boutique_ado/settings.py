@@ -13,7 +13,7 @@ import os
 import dj_database_url
 from pathlib import Path
 if os.path.isfile('env.py'):
-    import env # flake8 will throw an error here, but it is necessary to import env.py
+    import env  # flake8 will throw an error here, but it is necessary to import env.py
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,9 +29,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    '127.0.0.1', # vs code preview
-    'localhost', # listen for stripe webhooks
-    'anna-boutique-ado-v1-b3aa8e7de4b5.herokuapp.com' # heroku application
+    '127.0.0.1',  # vs code preview
+    'localhost',  # listen for stripe webhooks
+    'anna-boutique-ado-v1-b3aa8e7de4b5.herokuapp.com'  # heroku application
+    '.herokuapp.com',
 ]
 
 
@@ -86,7 +87,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+                'django.template.context_processors.request',  # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
