@@ -206,7 +206,6 @@ else:
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
