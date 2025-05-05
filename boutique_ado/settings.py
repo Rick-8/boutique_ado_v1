@@ -179,7 +179,7 @@ USE_TZ = True
 
 if 'USE_AWS' in os.environ:
     # AWS settings
-    AWS_STORAGE_BUCKET_NAME = 'boutique-ado-vrg'  # Update this to your actual bucket
+    AWS_STORAGE_BUCKET_NAME = 'boutique-ado-vrg'
     AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
@@ -197,9 +197,6 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-
 else:
     # Local development settings
     STATIC_URL = '/static/'
@@ -208,7 +205,6 @@ else:
 
     MEDIA_URL = '/media/'
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 
 # Stripe
