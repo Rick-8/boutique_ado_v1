@@ -197,6 +197,9 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 else:
     # Local development settings
     STATIC_URL = '/static/'
